@@ -1,0 +1,179 @@
+<h3> Personal Details</h3>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<div class="container" style="font-size: 10px">
+    
+    <form [formGroup]="formGroup" (ngSubmit)="onNext()" class="form">
+        <div class="row">
+            <div class="col-xs-3 ">
+                <mat-form-field class="form-element" floatLabel="never" appearance="fill">
+                    <input matInput placeholder="First Name" type="text" formControlName="fname">
+                </mat-form-field>
+            </div >
+            <div class="col-xs-3">
+                <mat-form-field class="form-element" floatLabel="never" appearance="fill">
+                    <input matInput placeholder="Middle Name" type="text" formControlName="mname">
+                </mat-form-field>
+            </div>
+            <div class="col-xs-3">
+                <mat-form-field class="form-element" floatLabel="never" appearance="fill">
+                    <!-- <mat-label> First Name:   </mat-label> -->
+                    <input matInput placeholder="Last Name" type="text" formControlName="lname">
+                </mat-form-field>
+            </div>
+            <div  class="col-xs-3">
+                <mat-form-field class="form-element" floatLabel="never" appearance="fill">
+                    
+                    <input matInput placeholder="Former/Maiden Name" type="text" formControlName="fmname">
+                </mat-form-field>
+            </div>
+    
+        </div>
+        <div class="row">
+            <div class="col-xs-3 ">
+                <mat-form-field class="form-element" floatLabel="never" appearance="fill">
+                    <input matInput placeholder="Father's Name" type="text" formControlName="fatherName">
+                </mat-form-field>
+            </div>
+            <div class="col-xs-3 ">
+                <mat-form-field class="form-element" floatLabel="never" appearance="fill">
+                    <!-- <mat-label> First Name:   </mat-label> -->
+                    <input matInput placeholder="Mobile Number" type="number" formControlName="mobileNumber">
+                </mat-form-field>
+            </div>
+            <div class="col-xs-3 ">
+                <mat-form-field class="form-element" floatLabel="never" appearance="fill">
+                    <input matInput placeholder="Social Security Number" type="number" formControlName="socialSecurityNumber">
+                </mat-form-field>
+
+            </div>
+           <div class="col-xs-3 ">
+            <mat-form-field class="form-element" floatLabel="never" appearance="fill">
+                <!-- <mat-label>Choose a date</mat-label> -->
+                 <input matInput placeholder="DOB"[matDatepicker]="picker1">
+                 <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                 <mat-datepicker #picker1 ></mat-datepicker>
+             </mat-form-field>
+
+        </div>
+
+    </div>  
+    <label>Current Address</label>
+       <div class="row">
+           <div class="col-xs-3">
+            <mat-form-field class="form-element" floatLabel="never" appearance="fill">
+                <input matInput placeholder="Residence No." type="number" formControlName="currentResidenceNumber">
+            </mat-form-field>
+           </div>
+           <div class="col-xs-3">
+            <mat-form-field class="form-element" floatLabel="never" appearance="fill">
+                <input matInput placeholder="Street/Floor/Building" type="text" formControlName="currentStreet">
+            </mat-form-field>
+            </div>
+            <div class="col-xs-3">
+                <mat-form-field class="form-element" floatLabel="never" appearance="fill">
+                    <input matInput placeholder="Prominent Landmark" type="text" formControlName="currentProminentLandmark">
+                </mat-form-field>
+
+            </div>
+            <div class="col-xs-3">
+                <mat-form-field class="form-element" floatLabel="never" appearance="fill">
+                    <input matInput placeholder="Pincode" type="number" formControlName="currentPincode">
+                </mat-form-field>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-3">
+                <mat-form-field class="form-element" floatLabel="never" appearance="fill">
+                    <!-- <mat-label>Choose a date</mat-label> -->
+                     <input matInput  placeholder="Starting Period of stay"[matDatepicker]="picker2">
+                     <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                     <mat-datepicker #picker2 ></mat-datepicker>
+                 </mat-form-field>
+
+            </div>
+            <div class="col-xs-3">
+                <mat-form-field class="form-element" floatLabel="never" appearance="fill">
+                    <!-- <mat-label>Choose a date</mat-label> -->
+                     <input matInput placeholder="Ending Period of stay" [matDatepicker]="picker3">
+                     <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+                     <mat-datepicker #picker3 ></mat-datepicker>
+                 </mat-form-field>
+
+            </div>
+        </div>
+       <div>
+        <mat-checkbox color="primary" (click)="copyData()" formControlName="checkBox" >Current address is my permanent address </mat-checkbox>
+
+       </div>
+        <label>Permanent Address</label>
+        <br>
+        <div class="row">
+            <div class="col-xs-3">
+                <mat-form-field class="form-element" floatLabel="never" appearance="fill">
+                    <input matInput placeholder="Residence No." type="number" formControlName="permanentResidenceNumber">
+                </mat-form-field>
+            </div>
+            <div class="col-xs-3">
+                <mat-form-field class="form-element" floatLabel="never" appearance="fill">
+                    <input matInput placeholder="Street/Floor/Building" type="text" formControlName="permanentStreet">
+                </mat-form-field>
+            </div>
+            <div class="col-xs-3">
+                <mat-form-field class="form-element" floatLabel="never" appearance="fill">
+                    <input matInput placeholder="Prominent Landmark" type="text" formControlName="permanentProminentLandmark">
+                </mat-form-field>
+            </div>
+            <div class=col-xs-3>
+                <mat-form-field class="form-element" floatLabel="never" appearance="fill">
+                    <input matInput placeholder="Pincode" type="text" formControlName="permanentPincode">
+                </mat-form-field>
+            </div>
+        </div>
+       <div class="row">
+           <div class="col-xs-3">
+            <mat-form-field class="form-element" floatLabel="never" appearance="fill">
+                <!-- <mat-label>Choose a date</mat-label> -->
+                 <input matInput placeholder="Starting Period of stay"[matDatepicker]="picker4">
+                 <mat-datepicker-toggle matSuffix [for]="picker4"></mat-datepicker-toggle>
+                 <mat-datepicker #picker4 ></mat-datepicker>
+             </mat-form-field>
+           </div>
+           <div class="col-xs-3">
+            <mat-form-field class="form-element" floatLabel="never" appearance="fill">
+                <!-- <mat-label>Choose a date</mat-label> -->
+                 <input matInput placeholder="Ending Period of stay" [matDatepicker]="picker5">
+                 <mat-datepicker-toggle matSuffix [for]="picker5"></mat-datepicker-toggle>
+                 <mat-datepicker #picker5 ></mat-datepicker>
+             </mat-form-field>
+           </div>
+        
+       </div>
+       
+         
+        <!-- <select formControlName="country" class="form-control" (change)="onChangeCountry($event.target.value)">
+            <option value="">Select country...</option>
+            <option *ngFor="let country of countries" [value]="country.id">{{country.country_name}}</option>
+          </select> -->
+
+          <!-- <select formControlName="state" class="form-control" (change)="onChangeState($event.target.value)">
+            <option value="">Select state...</option>
+            <option *ngFor="let state of states" [value]="state.id">{{state.state_name}}</option>
+          </select> -->
+
+          <!-- <select formControlName="city" class="form-control">
+            <option value="">Select city...</option>
+            <option *ngFor="let city of cities" [value]="city.id">{{city.city_name}}</option>
+          </select> -->
+
+        <br><br>
+    <div > 
+        <input type="submit" value="Submit" >
+    </div>
+      </form>
+   
+</div>
