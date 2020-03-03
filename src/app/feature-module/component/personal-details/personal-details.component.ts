@@ -75,9 +75,43 @@ else{
 }
 
 onNext()
-{
+{console.log("in onNext");
 this.sendModel.firstName=this.formGroup.controls.fname.value;
-this.pds.postPersonalDetails(this.sendModel);
+this.sendModel.middleName=this.formGroup.controls.mname.value;
+this.sendModel.lastName=this.formGroup.controls.lname.value;
+this.sendModel.maidenName=this.formGroup.controls.fmname.value;
+this.sendModel.dateOfBirth=this.formGroup.controls.dob.value;
+this.sendModel.gender=this.formGroup.controls.gender.value;
+this.sendModel.fathersName=this.formGroup.controls.fatherName.value;
+this.sendModel.phoneNumber= this.formGroup.controls.mobileNumber.value;
+this.sendModel.socialSecurityNumber=this.formGroup.controls.socialSecurityNumber.value;
+this.sendModel.nationality=this.formGroup.controls.nationality.value;
+this.sendModel.maritalStatus=this.formGroup.controls.maritalStatus.value;
+
+
+
+this.sendModel.address =   [{
+  residenceNo: this.formGroup.controls.currentResidenceNumber.value, 
+  building:this.formGroup.controls.currentStreet.value, 
+  prominentLandmark:this.formGroup.controls.currentProminentLandmark.value,
+  pinCode:this.formGroup.controls.currentPincode.value,
+  city:this.formGroup.controls.cityCurrent.value,
+  state:this.formGroup.controls.stateCurrent.value,
+  startDate:this.formGroup.controls.currentAddressStart.value,
+  endDate:this.formGroup.controls.currentAddressEnd.value
+}];
+this.sendModel.address.push({
+  residenceNo: this.formGroup.controls.permanentResidenceNumber.value, 
+  building:this.formGroup.controls.permanentStreet.value, 
+  prominentLandmark:this.formGroup.controls.permanentProminentLandmark.value,
+  pinCode:this.formGroup.controls.permanentPincode.value,
+  city:this.formGroup.controls.cityPermanent.value,
+  state:this.formGroup.controls.statePermanent.value,
+  startDate:this.formGroup.controls.permanentAddressStart.value,
+  endDate:this.formGroup.controls.permanentAddressEnd.value
+});
+console.log(JSON.stringify(this.sendModel));
+//this.pds.postPersonalDetails(this.sendModel);
 
 }
 
