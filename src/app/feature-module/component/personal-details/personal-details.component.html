@@ -5,8 +5,13 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <div class="container" style="font-size: 10px">
-    
+    <div>
+        <button type="button" (click)="OnClick()">Click Me!</button>
+      /div>
     <form [formGroup]="formGroup" (ngSubmit)="onNext()" class="form">
+        
+        <a routerLinkActive="active" 
+      routerLink="/enterEmail">Click</a> 
         <div class="row">
             <div class="col-xs-1 ">
                 <mat-form-field class="form-element" floatLabel="never" appearance="fill">
@@ -174,6 +179,7 @@
     <div > 
         <input type="submit" value="Submit" >
     </div>
-      </form>
+    
+    </form>
    
 </div>

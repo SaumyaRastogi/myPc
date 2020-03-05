@@ -1,9 +1,11 @@
 import { Component, OnInit,ViewChild } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, NgForm } from '@angular/forms';
 import {personalDetails} from '../../../model/personalDetail'
 import { MatInputModule } from '@angular/material';
 import { CascadeCSCService } from 'src/app/services/cascade-csc.service';
 import {PersonalDetailService} from 'src/app/services/personal-detail.service';
+import { PersonalDetailAlertService } from 'src/app/services/personal-detail-alert.service';
+import { Router, ActivatedRoute } from "@angular/router";
 @Component({
   selector: 'app-personal-details',
   templateUrl: './personal-details.component.html',
@@ -11,17 +13,23 @@ import {PersonalDetailService} from 'src/app/services/personal-detail.service';
 })
 export class PersonalDetailsComponent implements OnInit {
   formGroup: FormGroup;
+@ViewChild('formGroup',{static:true}) public FormGroup;
+
+  
   countries: {};
   states: {};
   cities: {};
   isChecked=false;
   _ObservaleResidenceAddress;
   sendModel:personalDetails= new personalDetails();
-
+  // **********************************************
   
   constructor(private frmbuilder: FormBuilder,
               private csc:CascadeCSCService ,
-              private pds:PersonalDetailService ) { }
+              private pds:PersonalDetailService ,
+              private _alert:PersonalDetailAlertService,
+              private router: Router,
+    private route: ActivatedRoute ) { }
 
   ngOnInit() {
     this.createForm();
@@ -33,7 +41,7 @@ export class PersonalDetailsComponent implements OnInit {
   {this.formGroup = this.frmbuilder.group({
     
    
-    'fname':['', [Validators.required]],
+    'fname':['hehe', [Validators.required]],
     'lname': [null],
     'mname': [null],
     'fmname': [null],
@@ -75,7 +83,8 @@ else{
 }
 
 onNext()
-{console.log("in onNext");
+{
+console.log("in onNext");
 this.sendModel.firstName=this.formGroup.controls.fname.value;
 this.sendModel.middleName=this.formGroup.controls.mname.value;
 this.sendModel.lastName=this.formGroup.controls.lname.value;
@@ -114,7 +123,10 @@ console.log(JSON.stringify(this.sendModel));
 //this.pds.postPersonalDetails(this.sendModel);
 
 }
-
+OnClick()
+{
+  this.router.navigate(['/enterEmail'])
+}
 
 
 

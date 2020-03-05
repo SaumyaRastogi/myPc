@@ -14,6 +14,8 @@ import { FormsModule } from '@angular/forms';
 import { ForgotPassConfirmPassComponent } from './component/forgot-pass-confirm-pass/forgot-pass-confirm-pass.component';
 import { MatToolbarModule, MatRippleModule, MatSnackBarModule, MatFormFieldModule,MatInputModule} from '@angular/material';
 import { PersonalDetailsComponent } from './feature-module/component/personal-details/personal-details.component';
+import { PersonalDetailService } from './services/personal-detail.service';
+import { PersonalDetailAlertService } from './services/personal-detail-alert.service';
 
 
 @NgModule({
@@ -44,7 +46,7 @@ import { PersonalDetailsComponent } from './feature-module/component/personal-de
   
   ],
   
-  providers: [],
+  providers: [PersonalDetailService,PersonalDetailAlertService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
